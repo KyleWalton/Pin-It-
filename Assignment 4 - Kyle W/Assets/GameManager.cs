@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
 
     public AudioSource music;
 
-    // Start is called before the first frame update
     private Save CreateSaveGameObject()
     {
         Save save = new Save();
@@ -48,6 +47,8 @@ public class GameManager : MonoBehaviour
         save.sRotatorSpeed = Data.Instance.rotationSpeed;
 
         save.sScore = Data.Instance.score;
+
+        save.sPlayTime = Data.Instance.playTime;
 
         return save;
     }
@@ -74,10 +75,12 @@ public class GameManager : MonoBehaviour
             Save save = (Save)bf.Deserialize(file);
             file.Close();
 
-            Data.Instance.rotationSpeed = save.sRotatorSpeed;
             Data.Instance.playerName = save.sName;
-            Data.Instance.score = save.sScore;
             Data.Instance.playerLives = save.sLives;
+            Data.Instance.pinSpeed = save.sPinSpeed;
+            Data.Instance.rotationSpeed = save.sRotatorSpeed;
+            Data.Instance.score = save.sScore;
+            Data.Instance.playTime = save.sPlayTime;
 
             Debug.Log("Game Loaded");
         }

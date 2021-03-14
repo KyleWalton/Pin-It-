@@ -18,7 +18,7 @@ public class Data : MonoBehaviour
 
     public int playTime;
 
-    public string score = 0;
+    public int score = 0;
 
     public bool gameIsPaused;
 
